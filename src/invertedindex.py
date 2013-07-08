@@ -13,6 +13,7 @@ class InvertedIndex():
         self.build_index()
 
     def build_index(self):
+        #comments?
         cache = self.doc_reader.get_cache()
         docs = self.doc_reader.read_docs(cache)
         print "Indexing %d documents.." % len(docs)
