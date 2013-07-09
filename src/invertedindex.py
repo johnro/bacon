@@ -1,4 +1,5 @@
 import settings
+import pcolors
 from tokenizer import Tokenizer
 from lexicon import Lexicon
 from document import DocReader
@@ -16,18 +17,23 @@ class InvertedIndex():
         #comments?
         cache = self.doc_reader.get_cache()
         docs = self.doc_reader.read_docs(cache)
-        print "Indexing %d documents.." % len(docs)
+        print "\nINVERTEDINDEX : Indexing %d documents..\n" % len(docs)
         for d in range(len(docs)):
+            print "Indexing document '%s'" % (settings.PATH_DOCS + str(d))
             self.add_document(docs[d], d)
-        
-        self.debugprint()
-        print self.lexicon.size()
+
+        print "Indexed total %d unique terms" % self.lexicon.size()
 
     def get_postinglist(self, lex_id):
         return self.invertedindex[lex_id]
             
     def add_document(self, doc, document_id):
-        """FIXME: Needs doc """
+        """FIXME: 
+        -Needs doc 
+        -Too slow?
+        -Remove stop words
+        -Reduce number of tokens
+        """
         tokens = self.tokenizer.tokenize(doc)
         
         for t in tokens:

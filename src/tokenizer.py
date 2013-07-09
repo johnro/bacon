@@ -1,4 +1,5 @@
 import re
+import settings
 
 class Tokenizer(object):
 
@@ -7,13 +8,14 @@ class Tokenizer(object):
         line = re.sub(r'\\s+'," ", line)
         return line.lower()
 
-    def tokenize(self, line):
+    def tokenize(self, doc):
         tokens = []
-        values = self.normalize(line).split()
+        values = self.normalize(doc).split()
          
         for i in range(len(values)): 
-            t = Token(values[i], i, i)
-            tokens.append(t)
+            if values[i] not in settings.STOPWORDS:
+                t = Token(values[i], i, i)
+                tokens.append(t)
         return tokens
 
     def stem(self, line):
