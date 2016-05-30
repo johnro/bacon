@@ -1,7 +1,6 @@
-#Settings used globally
 
-PATH_PROJECT = "/home/johnro/repos/bacon/"
-PATH_DOCS = "data/"       #Path to data directory
+#PATH_PROJECT = "/home/johnro/repos/bacon/"
+PATH_DOCS = "../data/"       #Path to data directory
 DEBUG = 1                   #Print debug statements
 INVALID = -1                #Invalid value
 

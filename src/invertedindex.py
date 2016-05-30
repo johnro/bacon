@@ -1,5 +1,4 @@
 import settings
-import pcolors
 from tokenizer import Tokenizer
 from lexicon import Lexicon
 from document import DocReader
